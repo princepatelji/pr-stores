@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PR Stores</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">PR Stores</div>
+    <div class="actions">
+      <input id="search" type="search" placeholder="Search products...">
+      <button id="cartBtn" class="cart-btn">Cart (<span id="cartCount">0</span>)</button>
+      <button id="adminBtn" class="secondary">Admin</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Find products you love</h1>
+      <p>Compare products here and continue your purchase on Amazon.</p>
+    </section>
+
+    <section class="toolbar">
+      <h2>Products</h2>
+      <select id="sort">
+        <option value="default">Sort</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </section>
+
+    <section id="productGrid" class="grid"></section>
+    <div id="empty" class="empty hidden">No products found.</div>
+  </main>
+
+  <div id="cartPanel" class="drawer hidden">
+    <div class="drawer-card">
+      <button class="close" id="closeCart">×</button>
+      <h2>Your Cart</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total">Total: ₹<span id="cartTotal">0</span></div>
+    </div>
+  </div>
+
+  <div id="adminPanel" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" id="closeAdmin">×</button>
+      <h2>Admin</h2>
+      <div id="loginBox">
+        <input id="adminPassword" type="password" placeholder="Password">
+        <button id="loginBtn">Login</button>
+        <small>Demo password: <b>prstores123</b></small>
+      </div>
+      <div id="adminBox" class="hidden">
+        <form id="productForm">
+          <input id="pName" placeholder="Product name" required>
+          <input id="pPrice" type="number" min="0" placeholder="Price (₹)" required>
+          <input id="pImage" placeholder="Image URL" required>
+          <input id="pAmazon" type="url" placeholder="Amazon Associate URL" required>
+          <textarea id="pSpecs" placeholder="Specifications / description"></textarea>
+          <button type="submit">Add Product</button>
+        </form>
+        <div id="adminProducts"></div>
+        <button id="logoutBtn" class="secondary">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 PR Stores · Amazon is a separate marketplace.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
