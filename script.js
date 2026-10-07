@@ -11,14 +11,31 @@ const defaultProducts = [
     specs: "Matte Black"
   }
 ];
-
-let stored = JSON.parse(localStorage.getItem(KEY) || 'null');
-
-let products = (Array.isArray(stored) && stored.length > 0)
-  ? stored
-  : defaultProducts;
-
+let products = [];
 let cart = JSON.parse(localStorage.getItem(CART) || '[]');
+async function loadProducts() {
+  try {
+    const response = await fetch('./product.json');
+
+    if (!response.ok) {
+      throw new Error('product.json not found');
+    }
+
+    const onlineProducts = await response.json();
+
+    if (Array.isArray(onlineProducts)) {
+      products = onlineProducts;
+    }
+
+    render();
+
+  } catch (error) {
+    console.error('Product loading error:', error);
+
+    products = defaultProducts;
+render();
+  }
+}
 
 const $ = id => document.getElementById(id);
 
@@ -342,4 +359,4 @@ if ($('productForm')) {
 
 }
 
-render();
+loadProducts();
