@@ -26,7 +26,7 @@ function handleImageError(img){img.onerror=null;img.src=FALLBACK_IMAGE;}
 async function loadProducts() {
   try {
     const response = await fetch(
-      `${SUPABASE_URL.replace(/\/$/, '')}/rest/v1/Products?select=*`,
+    `${SUPABASE_URL.replace(/\/$/, '')}/products?select=*`,
       {
         method: 'GET',
         headers: {
