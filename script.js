@@ -1,4 +1,4 @@
-const SUPABASE_URL = 'https://ittzyizopjjaznqwjshj.supabase.co/rest/v1/';
+const SUPABASE_URL = 'https://ittzyizopjjaznqwjshj.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_iws6jkjcJ0MYDGH6LRhdig__fqQD_al';
 
 const KEY='prstores_products_v1';
